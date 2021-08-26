@@ -11,7 +11,7 @@ Two terms:
 
 Reactive system is a set of architectural design principles for building modern systems that are well prepared to meet the increasing demands that applications face today.  
 The foundation for a reactive system is message-passing.  
-![reactive manifesto](https://github.com/bluething/spring-webflux-getting-started-code/blob/main/images/reactive-traits-id.svg?raw=true)
+![reactive manifesto](https://github.com/bluething/spring-webflux-getting-started-code/blob/main/images/reactive-traits.svg?raw=true)
 
 A reactive system has to be responsive, which means it has to respond quickly to all users under all conditions.  
 Responsiveness is achieved through resilience (responsiveness under failure).  
@@ -40,6 +40,14 @@ In a message-driven system addressable recipients await the arrival of messages 
 In an event-driven system notification listeners are attached to the sources of events such that they are invoked when the event is emitted.
 
 In a reactive system, especially one which uses reactive programming, both events and messages will be present—as one is a great tool for communication (messages), and another is a great way of representing facts (events).
+
+### Reactive programming model
+
+#### Non blocking
+
+#### Asynchronous
+
+#### Functional/declarative
 
 ### References
 
