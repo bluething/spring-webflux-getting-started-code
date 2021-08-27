@@ -66,4 +66,17 @@ public class OperatorTest {
 
         Thread.sleep(4000);
     }
+
+    @Test
+    void mergeWith() throws InterruptedException  {
+        Flux<Integer> oneToFive = Flux.range(1, 5)
+                .delayElements(Duration.ofMillis(200));
+        Flux<Integer> sixToTen = Flux.range(6, 5)
+                .delayElements(Duration.ofMillis(400));
+
+        oneToFive.mergeWith(sixToTen)
+                .subscribe(System.out::println);
+
+        Thread.sleep(4000);
+    }
 }
