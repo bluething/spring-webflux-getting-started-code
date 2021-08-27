@@ -3,6 +3,7 @@ package io.github.bluething.spring.reactor;
 import org.junit.jupiter.api.Test;
 import reactor.core.publisher.Flux;
 
+import java.time.Duration;
 import java.util.Arrays;
 
 public class FluxTest {
@@ -25,5 +26,14 @@ public class FluxTest {
         Flux.range(10, 5)
                 .log()
                 .subscribe();
+    }
+
+    @Test
+    public void fluxFromInterval() throws InterruptedException {
+        Flux.interval(Duration.ofSeconds(1))
+                .log()
+                .take(2)
+                .subscribe();
+        Thread.sleep(2000);
     }
 }
