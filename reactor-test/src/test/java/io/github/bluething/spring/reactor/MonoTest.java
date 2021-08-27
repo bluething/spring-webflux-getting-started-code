@@ -78,4 +78,12 @@ public class MonoTest {
                 .log()
                 .subscribe();
     }
+
+    @Test
+    public void errorOnErrorReturnMono() {
+        Mono.error(new Exception())
+                .onErrorReturn("B")
+                .log()
+                .subscribe();
+    }
 }
