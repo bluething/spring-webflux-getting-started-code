@@ -10,4 +10,11 @@ public class OperatorTest {
                 .map(i -> i * 10)
                 .subscribe(System.out::println);
     }
+
+    @Test
+    public void flatMap() {
+        Flux.range(1, 5)
+                .flatMap(i -> Flux.range(i * 10, 2))
+                .subscribe(System.out::println);
+    }
 }
