@@ -62,6 +62,7 @@ public class FluxTest {
                 });
     }
 
+    @Test
     public void fluxCustomSubscriber() {
         Flux.range(1, 5)
                 .log()
@@ -88,5 +89,13 @@ public class FluxTest {
                         }
                     }
                 });
+    }
+
+    @Test
+    public void fluxLimitRate() {
+        Flux.range(1, 5)
+                .log()
+                .limitRate(3)
+                .subscribe();
     }
 }
