@@ -13,6 +13,7 @@ public class MonoTest {
         Mono.just("A").log().subscribe(s -> System.out.println(s));
     }
 
+    @Test
     public void monoWithDoOn() {
         Mono.just("A")
                 .log()
