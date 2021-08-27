@@ -29,4 +29,13 @@ public class MonoTest {
                 .log()
                 .subscribe(s -> System.out.println(s));
     }
+
+    @Test
+    public void emptyCompleteMonoConsumer() {
+        Mono.empty()
+                .log()
+                .subscribe(System.out::println,
+                        null,
+                        () -> System.out.println("Done"));
+    }
 }
