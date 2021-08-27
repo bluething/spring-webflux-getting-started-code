@@ -45,4 +45,11 @@ public class MonoTest {
                 .log()
                 .subscribe();
     }
+
+    @Test
+    public void errorExceptionMono() {
+        Mono.error(new Exception())
+                .log()
+                .subscribe();
+    }
 }
