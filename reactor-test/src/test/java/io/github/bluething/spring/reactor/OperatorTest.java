@@ -89,4 +89,13 @@ public class OperatorTest {
                         (item1, item2) -> item1 + ", " + + item2)
                 .subscribe(System.out::println);
     }
+
+    @Test
+    void zipWith()  {
+        Flux<Integer> oneToFive = Flux.range(1, 5);
+        Flux<Integer> sixToTen = Flux.range(6, 5);
+
+        oneToFive.zipWith(sixToTen)
+                .subscribe(System.out::println);
+    }
 }
