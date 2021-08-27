@@ -38,4 +38,11 @@ public class MonoTest {
                         null,
                         () -> System.out.println("Done"));
     }
+
+    @Test
+    public void errorRuntimeExceptionMono() {
+        Mono.error(new RuntimeException())
+                .log()
+                .subscribe();
+    }
 }
