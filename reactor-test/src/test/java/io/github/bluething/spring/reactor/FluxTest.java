@@ -7,6 +7,7 @@ import reactor.core.publisher.Flux;
 
 import java.time.Duration;
 import java.util.Arrays;
+import java.util.Random;
 
 public class FluxTest {
     @Test
@@ -57,6 +58,34 @@ public class FluxTest {
                     @Override
                     protected void hookOnSubscribe(Subscription subscription) {
                         subscription.request(3);
+                    }
+                });
+    }
+
+    public void fluxCustomSubscriber() {
+        Flux.range(1, 5)
+                .log()
+                .subscribe(new BaseSubscriber<Integer>() {
+                    int elementsToProcess = 3;
+                    int counter = 0;
+
+                    @Override
+                    protected void hookOnSubscribe(Subscription subscription) {
+                        System.out.println("Subscribed!");
+                        request(elementsToProcess);
+                    }
+
+                    @Override
+                    protected void hookOnNext(Integer value) {
+                        counter++;
+                        if(counter == elementsToProcess) {
+                            counter = 0;
+
+                            Random r = new Random();
+                            elementsToProcess = r.ints(1, 4)
+                                    .findFirst().getAsInt();
+                            request(elementsToProcess);
+                        }
                     }
                 });
     }
