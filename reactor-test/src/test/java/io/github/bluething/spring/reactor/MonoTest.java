@@ -22,4 +22,11 @@ public class MonoTest {
                 .doOnSuccess(success -> System.out.println("Succeed: " + success))
                 .subscribe();
     }
+
+    @Test
+    public void emptyMono() {
+        Mono.empty()
+                .log()
+                .subscribe(s -> System.out.println(s));
+    }
 }
