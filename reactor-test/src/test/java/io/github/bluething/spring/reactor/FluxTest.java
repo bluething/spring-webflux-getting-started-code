@@ -19,4 +19,11 @@ public class FluxTest {
                 .log()
                 .subscribe();
     }
+
+    @Test
+    public void fluxFromRange() {
+        Flux.range(10, 5)
+                .log()
+                .subscribe();
+    }
 }
