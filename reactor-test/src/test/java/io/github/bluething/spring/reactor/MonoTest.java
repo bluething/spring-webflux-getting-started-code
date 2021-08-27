@@ -59,4 +59,12 @@ public class MonoTest {
                 .log()
                 .subscribe(System.out::println, e -> System.out.println("Error " + e));
     }
+
+    @Test
+    public void errorDoOnErrorMono() {
+        Mono.error(new Exception())
+                .doOnError(e -> System.out.println("Error: " + e))
+                .log()
+                .subscribe();
+    }
 }
