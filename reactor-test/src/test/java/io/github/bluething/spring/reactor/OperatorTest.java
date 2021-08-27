@@ -79,4 +79,14 @@ public class OperatorTest {
 
         Thread.sleep(4000);
     }
+
+    @Test
+    void zip()  {
+        Flux<Integer> oneToFive = Flux.range(1, 5);
+        Flux<Integer> sixToTen = Flux.range(6, 5);
+
+        Flux.zip(oneToFive, sixToTen,
+                        (item1, item2) -> item1 + ", " + + item2)
+                .subscribe(System.out::println);
+    }
 }
