@@ -36,4 +36,14 @@ public class FluxTest {
                 .subscribe();
         Thread.sleep(2000);
     }
+
+    @Test
+    public void fluxRequest() {
+        Flux.range(1, 5)
+                .log()
+                .subscribe(null,
+                        null,
+                        null,
+                        s -> s.request(3));
+    }
 }
