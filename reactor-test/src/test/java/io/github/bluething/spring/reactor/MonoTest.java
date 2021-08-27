@@ -52,4 +52,11 @@ public class MonoTest {
                 .log()
                 .subscribe();
     }
+
+    @Test
+    public void errorConsumerMono() {
+        Mono.error(new Exception())
+                .log()
+                .subscribe(System.out::println, e -> System.out.println("Error " + e));
+    }
 }
