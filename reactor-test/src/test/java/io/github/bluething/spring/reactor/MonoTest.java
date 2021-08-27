@@ -10,6 +10,6 @@ public class MonoTest {
     }
     @Test
     public void monoWithConsumer() {
-        Mono.just("A").log();
+        Mono.just("A").log().subscribe(s -> System.out.println(s));
     }
 }
