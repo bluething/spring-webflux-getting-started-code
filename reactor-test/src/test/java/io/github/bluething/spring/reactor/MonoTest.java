@@ -67,4 +67,15 @@ public class MonoTest {
                 .log()
                 .subscribe();
     }
+
+    @Test
+    public void errorOnErrorResumeMono() {
+        Mono.error(new Exception())
+                .onErrorResume(e -> {
+                    System.out.println("Caught: " + e);
+                    return Mono.just("B");
+                })
+                .log()
+                .subscribe();
+    }
 }
