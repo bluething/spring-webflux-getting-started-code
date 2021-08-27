@@ -12,4 +12,11 @@ public class FluxTest {
                 .log()
                 .subscribe();
     }
+
+    @Test
+    public void fluxFromIterable() {
+        Flux.fromIterable(Arrays.asList("A", "B", "C"))
+                .log()
+                .subscribe();
+    }
 }
